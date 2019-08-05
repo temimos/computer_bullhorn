@@ -36,20 +36,22 @@ System.out.println("INSIDE DATALOADER");
         Role adminRole = roleRepository.findByRole("ADMIN");
         Role userRole = roleRepository.findByRole("USER");
 
-        User user = new User("kqy@g.gtvtech.com", "Pa$$word2019", "jim", "jimmerson",true,"jim");
+        User user = new User("kqy@g.gtvtech.com", "Pa$$word2019", "jim", "jimmerson",true,"jim","https://s.gravatar.com/avatar/eb7e8a51c9991b29e55aa29ec68c5702} + '?s=60'}\"\n");
         user.setRoles(Arrays.asList(userRole));
         userService.saveUser(user);
-        user = new User("xdwr@my.qsl.ro","Pa$$word2019","Admin","User",true,"admin");
+        user = new User("kqy@g.gtvtech.com","Pa$$word2019","Jim","Jimmerson",true,"admin","https://s.gravatar.com/avatar/eb7e8a51c9991b29e55aa29ec68c5702} + '?s=60'}\"\n");
         user.setRoles(Arrays.asList(adminRole));
         userService.saveUser(user);
 
 
-        User dave = new User("ymu@z.zgrco.com",
+        User dave = new User("dave45678@gmail.com",
                 "password",
                 "David",
                 "Wolf",
                 true,
-                "dave");
+                "dave",
+                "http://gravatar.com/avatar/afd87b3415ef623a1a0337c2b2171949} + '?s=60}\n"
+                );
         dave.setRoles(Arrays.asList(adminRole));
         userService.saveUser(dave);
 
@@ -58,7 +60,8 @@ System.out.println("INSIDE DATALOADER");
                 "May",
                 "Day",
                 true,
-                "may");
+                "may",
+                "https://s.gravatar.com/avatar/5623241a8751fef7598d621664854feb} + '?s=60'}\"\n");
         may.setRoles(Arrays.asList(adminRole));
         userService.saveUser(may);
 

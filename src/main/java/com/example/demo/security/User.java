@@ -62,7 +62,7 @@ public class User {
 
 
 
-    public User(String email, String password, String firstName, String lastName, boolean enabled, String username)
+    public User(String email, String password, String firstName, String lastName, boolean enabled, String username, String gravatarURL)
     {
         this.setEmail(email);
         this.setPassword(password);
@@ -71,6 +71,7 @@ public class User {
         this.setEnabled(enabled);
         this.setUsername(username);
         this.firstName = firstName;
+        this.gravatarURL=gravatarURL;
 
     }
 
