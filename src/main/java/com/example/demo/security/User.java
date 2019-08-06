@@ -1,5 +1,6 @@
 package com.example.demo.security;
 
+import com.example.demo.Home;
 import com.example.demo.security.Role;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -36,12 +37,18 @@ public class User {
 
     public String gravatarURL;
 
+    //for Messages
+    @OneToMany(mappedBy = "user")
+    private Set<Home> homes;
+
+
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name="role_id"))
     private Collection<Role> roles;
 
+
     @OneToMany(mappedBy = "user")
-    private Set<User> user;
+    private Set<Home> home;
 
     //For followers and following
     @ManyToMany
@@ -55,7 +62,7 @@ public class User {
 
     public User(){
         roles = new HashSet<>();
-        user = new HashSet<>();
+        home = new HashSet<>();
         followers = new HashSet<>();
         followings = new HashSet<>();
     }
@@ -153,12 +160,12 @@ public class User {
         return enabled;
     }
 
-    public Set<User> getUser() {
-        return user;
+    public Set<Home> getHome() {
+        return home;
     }
 
-    public void setUser(Set<User> user) {
-        this.user = user;
+    public void setHome(Set<Home> home) {
+        this.home = home;
     }
 
     public Set<User> getFollowings() {
@@ -204,6 +211,18 @@ public class User {
         followings.remove(followed);
         //followed.removeFollower(this);
     }
+
+    public Set<Home> getHomes() {
+        return homes;
+    }
+
+    public void setHomes(Set<Home> homes) {
+        this.homes = homes;
+    }
+    public boolean isFollowing(User user) {
+        return followings.contains(user);
+    }
+
 
     @Override
     public String toString() {

@@ -22,15 +22,15 @@ public class FollowController {
     @RequestMapping("/followers")
     public String getFollowers(Model model) {
         model.addAttribute("home", "My Followers");
-        model.addAttribute("md5Util", new MD5Util());
+//        model.addAttribute("md5Util", new MD5Util());
         model.addAttribute("users", userRepository.findAllByFollowings(userService.getUser()));
         return "peoplelist";
     }
 
     @RequestMapping("/following")
     public String getFollowing(Model model) {
-        model.addAttribute("home", "People I`m Following");
-        model.addAttribute("md5Util", new MD5Util());
+        model.addAttribute("home", "People I'm Following");
+//        model.addAttribute("md5Util", new MD5Util());
         model.addAttribute("users", userRepository.findAllByFollowers(userService.getUser()));
         return "peoplelist";
     }
@@ -38,18 +38,18 @@ public class FollowController {
     @RequestMapping("/follow/{id}")
     public String follow(@PathVariable("id") long id, Model model) {
         User follow = userRepository.findById(id).get();
-        User myuser = userService.getUser();
-        myuser.addFollowing(follow);
-        userRepository.save(myuser);
+        User user = userService.getUser();
+        user.addFollowing(follow);
+        userRepository.save(user);
         return "redirect:/";
     }
 
     @RequestMapping("/unfollow/{id}")
     public String unfollow(@PathVariable("id") long id, Model model) {
         User follow = userRepository.findById(id).get();
-        User myuser = userService.getUser();
-        myuser.removeFollowing(follow);
-        userRepository.save(myuser);
+        User user = userService.getUser();
+        user.removeFollowing(follow);
+        userRepository.save(user);
         return "redirect:/";
     }
 

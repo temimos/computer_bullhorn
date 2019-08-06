@@ -84,14 +84,14 @@ System.out.println("INSIDE DATALOADER");
                 may);
         homeRepository.save(home);
 
-//        //Add followers
-//        dave.addFollower(admin);
-//        userRepository.save(admin);
-//
-//        //Add Following
-//        dave.addFollowing(moe);
-//        dave.addFollowing(tolani);
-//        userRepository.save(dave);
+    //Add followers
+        dave.addFollower(may);
+        userRepository.save(may);
+
+      //Add Following
+        dave.addFollowing(may);
+        dave.addFollowing(user);
+        userRepository.save(dave);
     }
 
     }
